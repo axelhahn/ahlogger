@@ -4,6 +4,8 @@
  * Debug logging during a client request.
  * So you can measure any action find bottlenecks in your code.
  * 
+ * Source: https://github.com/axelhahn/ahlogger
+ * 
  * USAGE:
  * (1) Trigger a message with add() to add a marker
  * (2) The render() method lists all items in a table with time since start
@@ -14,6 +16,7 @@
 class logger {
 
     protected $aMessages = array();
+    protected $_iMemStart = false;
 
     /**
      * constuctor
@@ -21,6 +24,7 @@ class logger {
      * @return boolean
      */
     public function __construct($sInitMessage = "Logger was initialized.") {
+		$this->_iMemStart=memory_get_usage();
         $this->add($sInitMessage);
         return true;
     }
@@ -46,6 +50,10 @@ class logger {
      */
     public function render() {
         $sOut = '';
+		$iMem=memory_get_usage();
+		$this->add('Memory on start: ' . number_format($this->_iMemStart, 0, '.', ',') . " bytes");
+		$this->add('Memory on end: '   . number_format($iMem, 0, '.', ',') . " bytes");
+		$this->add('Memory peak: '  . number_format(memory_get_peak_usage(), 0, '.', ',') . " bytes");
         $sStarttime = $this->aMessages[0]["time"];
 
         $iCounter = 0;
@@ -84,7 +92,7 @@ class logger {
             $sWarnings = '<br>warnings:&nbsp;' . $sWarnings;
         }
 
-        if ($sOut)
+        if ($sOut){
             $sOut = '
             <div style="position: fixed; right: 1em; top: 6em; background: rgba(255,80,80, 0.1); padding: 0.5em; z-index: 99999;">
                 <span style="font-size: 130%;">total:&nbsp;' . sprintf("%01.3f", $iTotal) . '&nbsp;s</span><br>
@@ -107,7 +115,8 @@ class logger {
                 <th>message</th>
             </tr></thead><tbody>
             ' . $sOut . '</tbody></table>'
-                    . '<script>$(\'#' . $sMaxRowId . '\').css(\'color\', \'#f00\');</script>';
+            . '<script>$(\'#' . $sMaxRowId . '\').css(\'color\', \'#f00\');</script>';
+		}
         return $sOut;
     }
 

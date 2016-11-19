@@ -10,6 +10,8 @@ Licence GPL 3.0
 author: Axel Hahn
 http://www.axel-hahn.de
 
+Source: https://github.com/axelhahn/ahlogger
+
 -------------------------------------------------------------------------------
  
 USAGE:

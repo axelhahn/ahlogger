@@ -46,6 +46,27 @@ $sSql='select id, label, description from mytable;';
 $oLog->add("sql query finished: " . $sSql);
 ```
 
+### Use a global log object
+
+If you init the logger globally you can put requests into your class
+
+Example:
+
+    /**
+     * add a log messsage
+     * @global object $oLog
+     * @param  string $sMessage  messeage text
+     * @param  string $sLevel    warnlevel of the given message
+     * @return bool
+     */
+    private function log($sMessage, $sLevel = "info") {
+        global $oLog;
+        if (!$oLog ||! is_object($oLog) || !method_exists($oLog, "add")){
+            return false;
+        }
+        return $oLog->add("class " . __CLASS__ . " - " . $sMessage, $sLevel);
+    }
+
 
 ## Show debug data
 
@@ -66,4 +87,12 @@ Other colors of table rows you can define in your css class.
 An additional div on top right shows the execution time total
 and the time of the longest action (with a link to it).
 
-![Output](images/logger-w640.png)
+![Output](images/ahlogger-html-ouput.png)
+
+For CLI usage there is a render function for cli output:
+
+```php
+if ($bIsDevelopEnvironment){
+    echo $oLog->renderCli();
+}
+```

@@ -219,14 +219,15 @@ class logger {
                 .'.$this->sCssPrefix.'-info          {position: fixed; top: 6em; right: 1em; background: rgba(160,200,255, 0.3); border: 1px solid; z-index: 99999;}
                 .'.$this->sCssPrefix.'-info .head    {background: rgba(0,0,0,0.4); color: #fff;padding: 0em 0.5em; }
                 .'.$this->sCssPrefix.'-info .content {padding: 0.5em; }
-                .'.$this->sCssPrefix.'-info .content .total {font-size: 130%;}
+                .'.$this->sCssPrefix.'-info .content .total {font-size: 140%; color: rgba(0,0,0,0.5); margin: 0.3em 0; display: inline-block;}
 
                 .'.$this->sCssPrefix.'-messages {margin: 5em 2em 2em;}
                 .'.$this->sCssPrefix.'-messages .bar      {background: rgba(0,0,0,0.03); height: 1.4em; position: absolute; width: 6em; border-right: 1px solid rgba(0,0,0,0.2);}
-                .'.$this->sCssPrefix.'-messages .progress {background: rgba(100,140,180,0.2); height: 1.4em; }
-                .'.$this->sCssPrefix.'-messages table{background: #fff; color: #222; width: 100%;}
+                .'.$this->sCssPrefix.'-messages .progress {background: rgba(100,140,180,0.2); height: 1.4em; padding: 0;}
+                .'.$this->sCssPrefix.'-messages table{background: #fff; color: #222;table-layout:fixed; }
                 .'.$this->sCssPrefix.'-messages table th{background: none;}
-                .'.$this->sCssPrefix.'-messages table td{padding: 3px; }
+                .'.$this->sCssPrefix.'-messages table th.barcol{min-width: 7em; position: relative;}
+                .'.$this->sCssPrefix.'-messages table td{padding: 3px; vertical-align: top;}
                 .'.$this->sCssPrefix.'-messages table th:hover{background:#aaa !important;}
 
                 .'.$this->sCssPrefix.'-level-info{background: #e0e8f8; color:#124}
@@ -238,13 +239,14 @@ class logger {
                 <div class="head">ahLogger</div>
                 <div class="content">
                     <span class="total">' . $aData['totaltime'] . '&nbsp;s</span><br>
+                    <a href="#'.$this->sCssPrefix.'-messages">Debug infos</a> | <a href="#">top</a><br>
                     <span>longest&nbsp;action:&nbsp;<a href="#' . $aData['maxrowid'] . '">' . ($aData['maxtime']*1000) . '&nbsp;ms</a></span>
                     ' . ($aData['errors'] ? '<br><span>Errors: '.$aData['errors'] . '</span>' : '').'
                     ' . ($aData['warnings'] ? '<br><span>Warnings: '.$aData['warnings'] . '</span>' : '').'
                 </div>
             </div>
 
-            <div class="'.$this->sCssPrefix.' '.$this->sCssPrefix.'-messages">
+            <div id="'.$this->sCssPrefix.'-messages" class="'.$this->sCssPrefix.' '.$this->sCssPrefix.'-messages">
             DEBUG :: LOG MESSAGES<br>'
             . ($aData['errors']   ? '<span>Errors: '.$aData['errors'] . '</span><br>' : '')
             . ($aData['warnings'] ? '<span>Warnings: '.$aData['warnings'] . '</span><br>' : '')
@@ -255,8 +257,8 @@ class logger {
                 <th>#</th>
                 <th>level</th>
                 <th>time [s]</th>
-                <th>delta</th>
-                <th>memory</th>
+                <th class="barcol">delta</th>
+                <th class="barcol">memory</th>
                 <th>message</th>
             </tr></thead><tbody>
             ' . $sOut . '</tbody></table>'

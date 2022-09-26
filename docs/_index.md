@@ -16,3 +16,4 @@ of any action you want to measure.
 📜 License: GNU GPL 3.0 \
 📗 Docs: <https://www.axel-hahn.de/docs/ahlogger>
 
+![Output](images/ahlogger-html-ouput.png)

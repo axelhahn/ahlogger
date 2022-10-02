@@ -216,10 +216,10 @@ class logger {
         if ($sOut){
             $sOut = '
             <style>
-                .'.$this->sCssPrefix.'-info          {position: fixed; top: 6em; right: 1em; background: rgba(160,200,255, 0.3); border: 1px solid; z-index: 99999;}
-                .'.$this->sCssPrefix.'-info .head    {background: rgba(0,0,0,0.4); color: #fff;padding: 0em 0.5em; }
+                .'.$this->sCssPrefix.'-info          {position: fixed; top: 6em; right: 1em; background: rgba(200,228,255, 0.8); border: 1px solid; z-index: 99999;}
+                .'.$this->sCssPrefix.'-info .head    {background: rgba(0,0,0,0.4); color: #fff;padding: 0em 0.5em 0.2em; }
                 .'.$this->sCssPrefix.'-info .content {padding: 0.5em; }
-                .'.$this->sCssPrefix.'-info .content .total {font-size: 140%; color: rgba(0,0,0,0.5); margin: 0.3em 0; display: inline-block;}
+                .'.$this->sCssPrefix.'-info .content .total {font-size: 160%; color: rgba(0,0,0,0.5); margin: 0.3em 0; display: inline-block;}
 
                 .'.$this->sCssPrefix.'-messages {margin: 5em 2em 2em;}
                 .'.$this->sCssPrefix.'-messages .bar      {background: rgba(0,0,0,0.03); height: 1.4em; position: absolute; width: 6em; border-right: 1px solid rgba(0,0,0,0.2);}
@@ -238,11 +238,11 @@ class logger {
             <div class="'.$this->sCssPrefix.' '.$this->sCssPrefix.'-info '.$this->sCssPrefix.'-level-'.$aData['level'].'">
                 <div class="head">ahLogger</div>
                 <div class="content">
-                    <span class="total">' . $aData['totaltime'] . '&nbsp;s</span><br>
-                    <a href="#'.$this->sCssPrefix.'-messages">Debug infos</a> | <a href="#">top</a><br>
-                    <span>longest&nbsp;action:&nbsp;<a href="#' . $aData['maxrowid'] . '">' . ($aData['maxtime']*1000) . '&nbsp;ms</a></span>
-                    ' . ($aData['errors'] ? '<br><span>Errors: '.$aData['errors'] . '</span>' : '').'
-                    ' . ($aData['warnings'] ? '<br><span>Warnings: '.$aData['warnings'] . '</span>' : '').'
+                    <span class="total">⏱️ ' . $aData['totaltime'] . '&nbsp;s</span><br>
+                    🪲 <a href="#'.$this->sCssPrefix.'-messages">Debug infos</a> | 🔺 <a href="#">top</a><br>
+                    <span>longest&nbsp;action: ⏱️&nbsp;<a href="#' . $aData['maxrowid'] . '">' . ($aData['maxtime']*1000) . '&nbsp;ms</a></span>
+                    ' . ($aData['errors'] ? '<br><span>‼️ Errors: '.$aData['errors'] . '</span>' : '').'
+                    ' . ($aData['warnings'] ? '<br><span>⚠️ Warnings: '.$aData['warnings'] . '</span>' : '').'
                 </div>
             </div>
 

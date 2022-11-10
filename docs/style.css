@@ -1,42 +1,103 @@
 /*
 
     patch css elements of daux.io blue theme
-    version 2022-08-14
+    version 2022-11-10
 
 */
 
+:root {
 
-/* ---------- vars ---------- */ 
+    /* Axels Overrides */
+    --link-color: #389;
+    --brand-color: var(--color-secondary);
+    --brand-background: var(--body-background);
+    --hr-color: none;
 
-:root{
+    --search-field-background: none;
+    --search-field-border-color: none;
 
-    /* background colors */
-    --bg:none;
-    --bg-body: #fff;
-    --bg-navlinkactive:#f4f4f4;
-    --bg-navlinkactive: linear-gradient(-90deg,rgba(0,0,0,0), rgba(40,60,80,0.05) 30%);
-    --bg-pre:#f8f8f8;
-    --bg-toc: #fff;
+    --sidebar-background:var(--body-background);
+    --sidebar-border-color: none;
+    --sidebar-link-active-background: #f8f8f8;
 
-    /* foreground colors */
-    --color: #234;
-    --navlinkactive:#f33;
-    --title: #aaa;
+    /* Axels custom values */
+    --axel_bg-toc: #fafafa;
+    --axel_bg-toc-head: #f0f0f0;
 
-    --link:#12a;
-    --toclink:rgba(40,60,80,0.8);
+    --axel_brand-background: #8cc;
+    --axel_brand-background-hover: #8ce;
 
-    --h1: rgba(40,60,80,0.8);
-    --h1-bottom: 1px solid rgba(40,60,80,0.1);
-    --h2: #468;
-    --h3: #579;
+    --axel_h1_header: #d33;
+
+    --axel_h1: #288;
+    --axel_h1-bg: #f8f8f8;
+    --axel_h1-bottom: 3px solid #8dd;
+    --axel_h2: #27a;
+    --axel_h2-bg: #f8f8f8;
+    --axel_h2-bottom: 2px solid #8ce;
+    --axel_h3: #838;
+    --axel_h3-bottom: 1px solid #ddd;
+
+    --axel_nav-bg:#fcfcfc;
+    --axel_nav-buttomborder: #ddd;
+
+    --axel_pre-background: #f8f8f8;
+
+}
+
+.dark {
+
+    /* Axels Overrides */
+    --color-text: #c0c0c0;
+    --link-color: #6cd;
+
+    --brand-color: var(--color-text);
+    --brand-background: var(--body-background);
+    --hr-color: none;
+    --code-tag-background-color_: #bcc;
+
+    --search-field-background: none;
+    --search-field-border-color: none;
+
+    --sidebar-background:var(--body-background);
+    --sidebar-border-color: none;
+    --sidebar-link-active-background: #333;
+
+    /* Axels custom values */
+    --axel_bg-toc: #333;
+    --axel_bg-toc-head: #222;
+    
+    --axel_brand-background: #6aa;
+    --axel_brand-background-hover: #6ab;
+
+    --axel_h1_header: #d33;
+
+    --axel_h1: #777;
+    --axel_h1-bottom: 3px solid #444;
+    --axel_h2: #666;
+    --axel_h2-bottom: 2px solid #333;
+    --axel_h3: #555;
+    --axel_h3-bottom: 1px solid #333;
+
+    --axel_h1: #288;
+    --axel_h1-bg: #282828;
+    --axel_h1-bottom: 3px solid #266;
+    --axel_h2: #27a;
+    --axel_h2-bg: #282828;
+    --axel_h2-bottom: 2px solid #256;
+    --axel_h3: #838;
+    --axel_h3-bottom: 1px solid #333;
+
+    --axel_nav-bg:#242424;
+    --axel_nav-buttomborder: #555;
+    --axel_pre-background: #bcc;
 
 }
 
 /* ---------- tags ---------- */
 
 a.Brand::before {
-	background: rgb(180,200,220);
+	background: var(--axel_brand-background);
     border-radius: 100%;
 	color: #fff;
     font-family: arial;
@@ -47,85 +108,34 @@ a.Brand::before {
     float: left;
 }
 a.Brand:hover::before {
-	background: #8cc;
+	background: var(--axel_brand-background-hover);
+}
+a.Brand {
+	font-size: 200%;
 }
 
-body, *{color: var(--color);}
-body{background: var(--bg-body);}
+ul.Nav{
+    border-bottom: 1px dashed var(--axel_nav-buttomborder);
+    background: var(--axel_nav-bg);
+}
+/* ---------- tags ---------- */
 
+.Page__header{border: none;}
+.Page__header a{color: var(--axel_h1_header);}
 
-a{color: var(--link);}
-a:hover{opacity: 0.7;}
-
-h1>a{ color:var(--title);}
-_h1:nth-child(1){position: fixed; background: var(--bg); box-shadow: 0 0 1em #ccc; padding: 0 1em}
-h1:nth-child(1)>a{ color:var(--navlinkactive); }
-
-.s-content h1{color: var(--h1); font-size: 200%; font-weight:bold; margin-top: 2em; border-bottom: var(--h1-bottom);}
-.s-content h2{color: var(--h2); font-size: 160%; }
-.s-content h3{color: var(--h3); font-size: 140%; }
+.s-content h1{background: var(--axel_h1-bg); color: var(--axel_h1); font-size: 200%; font-weight:bold; margin-top: 2em; border-bottom: var(--axel_h1-bottom);}
+.s-content h2{background: var(--axel_h2-bg); color: var(--axel_h2); font-size: 180%; font-weight:bold; margin-top: 4em; border-bottom: var(--axel_h2-bottom);}
+.s-content h3{background: var(--axel_h3-bg); color: var(--axel_h3); font-size: 150%; font-weight:bold; margin-top: 3em; border-bottom: var(--axel_h3-bottom);}
 .s-content h4{margin: 0; font-size: 100%; text-align: center; background-color: rgba(0,0,0,0.05);padding: 0.3em;}
-
 .s-content pre{
-    background: var(--bg-pre);
+    background: var(--axel_pre-background);
 }
 
+.s-content h3 code{border : none; background: none; }
 /* ---------- classes ---------- */
 
 .required{color:#a42;}
 .optional{color:#888;}
-
-
-/* ----- top left */
-.Brand,
-.Columns__left {
-	background: var(--bg);
-	border-right: 0px solid #e7e7e9;
-    color: var(--color);
-}
-.Brand{font-size: 200%;
-    background_: linear-gradient(-10deg,#fff 50%, #ddd);
-    background: var(--bg);
-}
-.Columns__right__content {
-	background: var(--bg);
-}
-.Page__header {
-	border-bottom: none;
-}
-/* ----- Navi left */
-
-.Nav a:hover{
-    background: none;
-    color: var(--navlinkactive) !important;
-}
-
-.Nav__item--active {
-    border-right_: 0.3em solid var(--navlinkactive);
-}
-.Nav__item--active > a{
-	background: var(--bg-navlinkactive);
-    color: var(--navlinkactive);
-}
-.Nav .Nav .Nav__item--active a {
-    color: var(--navlinkactive);
-}
-.Nav .Nav .Nav__item a {
-	opacity: 1;
-}
-.Nav__item--open > a {
-	background-color: var(--bg);
-}
-
-.Nav a[href*="__Welcome"]{
-    background: url("/icons/house.png") no-repeat 10px 4px ;
-    padding-left: 40px;
-}
-.Nav a[href*="__How_does_it_work"]{
-    background: url("/icons/light-bulb.png") no-repeat 10px 4px ;
-    padding-left: 40px;
-}
-
 
 
 
@@ -135,7 +145,6 @@ h1:nth-child(1)>a{ color:var(--navlinkactive); }
 .s-content table {
 	font-size: 1em;
 }
-
 
 /* TOC */
 @media(min-width:1700px){
@@ -148,12 +157,17 @@ h1:nth-child(1)>a{ color:var(--navlinkactive); }
 
 .TableOfContentsContainer{
     border-top-left-radius: 1em;
-    background-color: var(--bg-toc);
-	border-left: 2px solid rgba(0,0,0,0.05);
-    padding: 0em;
+    background-color: var(--axel_bg-toc);
+    padding: 0.5em;
 }
-.TableOfContentsContainer__content {
 
+.s-content .TableOfContentsContainer h4{
+    background-color: var(--axel_bg-toc-head);
+	font-size: 1.2em;
+    margin: 0;
+}
+
+.TableOfContentsContainer__content {
 	border: none;
 	font-size: 0.5em;
 
@@ -161,23 +175,4 @@ h1:nth-child(1)>a{ color:var(--navlinkactive); }
 ul.TableOfContents ul{
 	list-style-type: none;
     padding-left: 1em;
-}
-.TableOfContentsContainer a{ color:var(--toclink);}
-
-.TableOfContentsContainer__content > .TableOfContents > li + li {
-	border-top: none;
-}
-.TableOfContentsContainer__content > .TableOfContents > li {
-	border-bottom: 1px dashed #ddd;
-}
-
-/* pager - prev .. next */
-.s-content{
-    margin-bottom: 6em;
-}
-.Pager{
-    border-top: 1px dashed #aaa; margin: 0; padding: 1em;
-}
-.Pager a{
-    color:var(--navlinkactive);
 }

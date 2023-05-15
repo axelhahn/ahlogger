@@ -26,6 +26,7 @@
  * 2022-10-02  add emoji chars 
  * 2022-10-16  mark longest action with an icon 
  * 2022-12-15  make it compatible to PHP 8.2; add doc + comments
+ * 2023-05-15  fix _getBar() - division by zero
  * ----------------------------------------------------------------------
  */
 class logger {
@@ -207,8 +208,10 @@ class logger {
      * @return {string}
      */
     protected function _getBar($iVal, $iMax){
-        $iWidth=$iVal/$iMax*100;
-        return '<div class="bar"><div class="progress" style="width: '.$iWidth.'%;">&nbsp;</div></div>';
+        return $iMax>0
+            ? '<div class="bar"><div class="progress" style="width: '.($iVal/$iMax*100).'%;">&nbsp;</div></div>'
+            : ''
+            ;
     }
 
     /**

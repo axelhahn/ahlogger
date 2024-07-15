@@ -287,8 +287,8 @@ class logger
                 .' . $this->sCssPrefix . '-messages {margin: 5em 2em 2em;}
                 .' . $this->sCssPrefix . '-messages .bar      {background: rgba(0,0,0,0.03); height: 1.4em; position: absolute; width: 6em; border-right: 1px solid rgba(0,0,0,0.2);}
                 .' . $this->sCssPrefix . '-messages .progress {background: rgba(100,140,180,0.2); height: 1.4em; padding: 0; float: left;}
-                .' . $this->sCssPrefix . '-messages table{background: #fff; color: #222;table-layout:fixed; }
-                .' . $this->sCssPrefix . '-messages table th{background: none;}
+                .' . $this->sCssPrefix . '-messages table{background: #fff; color: #222;table-layout:fixed; border: 2px solid rgba(0,0,0,0.2); border-radius: 0.5em;}
+                .' . $this->sCssPrefix . '-messages table th{background: none; color: #222; border-bottom: 2px solid rgba(0,0,0,0.4);}
                 .' . $this->sCssPrefix . '-messages table th.barcol{min-width: 7em; position: relative;}
                 .' . $this->sCssPrefix . '-messages table td{padding: 3px; vertical-align: top;}
                 .' . $this->sCssPrefix . '-messages table th:hover{background:#aaa !important;}
@@ -310,7 +310,7 @@ class logger
             </div>
 
             <div id="' . $this->sCssPrefix . '-messages" class="' . $this->sCssPrefix . ' ' . $this->sCssPrefix . '-messages">
-            DEBUG :: LOG MESSAGES<br>'
+            AHLOGGER :: DEBUG MESSAGES<br>'
                 . ($aData['errors'] ? '<span>Errors: ' . $aData['errors'] . '</span><br>' : '')
                 . ($aData['warnings'] ? '<span>Warnings: ' . $aData['warnings'] . '</span><br>' : '')
                 . '<br>

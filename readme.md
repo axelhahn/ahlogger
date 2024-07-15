@@ -10,7 +10,7 @@ You don't need to write any print_r and var_dump anymore and remove it
 afterwards. Add _GET and _POST, and put a $oLog->add() at start and end
 of any action you want to measure.
 
-Compatible to PHP 8.2
+Compatible to PHP 8.3
 
 👤 Author: Axel Hahn \
 📄 Source: <https://github.com/axelhahn/ahlogger> \

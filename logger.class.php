@@ -271,7 +271,7 @@ class logger
                 '<td align="right">' . $aLogentry["counter"] . '</td>' .
                 '<td>' . $aLogentry["level"] . '</td>' .
                 '<td align="right">' . $aLogentry["timer"] . '</td>' .
-                '<td align="right">' . $this->_getBar($aLogentry["delta"], $aData["maxtime"] * 1000) . ($aLogentry["delta"] == $aData['maxtime'] * 1000 ? ' ⏱️' : '') . $aLogentry["delta"] . ' ms</td>' .
+                '<td align="right">' . $this->_getBar($aLogentry["delta"], $aData["maxtime"] * 1000) . ($aLogentry["delta"] == $aData['maxtime'] * 1000 ? '⏱️    ' : '') . $aLogentry["delta"] . ' ms</td>' .
                 '<td align="right">' . $this->_getBar($aLogentry["memory"], $aData["maxmem"]) . $aLogentry["memory"] . ' MB' . '</td>' .
                 '<td>' . $aLogentry["message"] . '</td>' .
                 '</tr>';
@@ -279,12 +279,13 @@ class logger
         if ($sOut) {
             $sOut = '
             <style>
-                .' . $this->sCssPrefix . '-info {position: fixed; top: 6em; right: 1em; background: rgba(200,228,255, 0.8); border: 2px solid rgba(0,0,0,0.1); border-radius: 0.3em; z-index: 99999;}
+                .' . $this->sCssPrefix . '-info {position: fixed; top: 6em; right: 1em; background: rgba(230,240,255, 0.8); border: 2px solid rgba(0,0,0,0.2); border-radius: 0.3em; z-index: 99999;}
                 .' . $this->sCssPrefix . '-info .loggerhead    {background: rgba(0,0,0,0.4); color: #fff;padding: 0em 0.5em 0.2em; border-radius: 0.3em 0.3em 0 0; }
                 .' . $this->sCssPrefix . '-info .loggercontent {padding: 0.5em; }
                 .' . $this->sCssPrefix . '-info .loggercontent .total {font-size: 160%; color: rgba(0,0,0,0.5); margin: 0.3em 0; display: inline-block;}
 
                 .' . $this->sCssPrefix . '-messages {margin: 5em 2em 2em;}
+                .' . $this->sCssPrefix . '-messages>h3 {font-size: 150%; margin: 0 0 0.5em 0;}
                 .' . $this->sCssPrefix . '-messages .bar      {background: rgba(0,0,0,0.03); height: 1.4em; position: absolute; width: 6em; border-right: 1px solid rgba(0,0,0,0.2);}
                 .' . $this->sCssPrefix . '-messages .progress {background: rgba(100,140,180,0.2); height: 1.4em; padding: 0; float: left;}
                 .' . $this->sCssPrefix . '-messages table{background: #fff; color: #222;table-layout:fixed; border: 2px solid rgba(0,0,0,0.2); border-radius: 0.5em;}
@@ -298,7 +299,7 @@ class logger
                 .' . $this->sCssPrefix . '-level-error{background: #fce0e0; color: #944;}
                 .' . $this->sCssPrefix . '-maxrow{color:#f33; font-weight: bold;}
             </style>
-            <div class="' . $this->sCssPrefix . ' ' . $this->sCssPrefix . '-info ' . $this->sCssPrefix . '-level-' . $aData['level'] . '">
+            <div class="' . $this->sCssPrefix . ' ' . $this->sCssPrefix . '-info ' . $this->sCssPrefix . '-level-' . $aData['level'] . '" onclick="location.href=\'#' . $this->sCssPrefix . '-messages\';">
                 <div class="loggerhead">ahLogger</div>
                 <div class="loggercontent">
                     <span class="total">⏱️ ' . $aData['totaltime'] . '&nbsp;s</span><br>
@@ -310,7 +311,7 @@ class logger
             </div>
 
             <div id="' . $this->sCssPrefix . '-messages" class="' . $this->sCssPrefix . ' ' . $this->sCssPrefix . '-messages">
-            AHLOGGER :: DEBUG MESSAGES<br>'
+            <h3>ahLogger 🪳 Debug messages</h3>'
                 . ($aData['errors'] ? '<span>Errors: ' . $aData['errors'] . '</span><br>' : '')
                 . ($aData['warnings'] ? '<span>Warnings: ' . $aData['warnings'] . '</span><br>' : '')
                 . '<br>
@@ -326,7 +327,7 @@ class logger
             </tr></thead><tbody>
             ' . $sOut 
             . '</tbody></table>'
-            . '<a href="'.$this->sSourceUrl.'" target="_blank">'.$this->sSourceUrl.'</a>'
+            . '🌐 <a href="'.$this->sSourceUrl.'" target="_blank">'.$this->sSourceUrl.'</a>'
             ;
         }
         return $sOut;

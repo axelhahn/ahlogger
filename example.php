@@ -22,5 +22,3 @@ $oLog->add("description of another action");
 if ($bIsDevelopEnvironment){
 	echo $oLog->render();
 }
-
-?>

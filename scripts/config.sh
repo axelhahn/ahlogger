@@ -16,7 +16,7 @@ FILELIST="
 # web url to watch sources
 # The relative filename to approot will be added + "#L" + line number
 # (which works for Github and Gitlab for sure)
-SOURCEURL="https://github.com/<user>/<repo>/blob/main"
+SOURCEURL="https://github.com/axelhahn/ahlogger/blob/master"
 
 # relative or absolute path of local php doc parser
 PARSERDIR="$APPDIR/../php-classdoc/"

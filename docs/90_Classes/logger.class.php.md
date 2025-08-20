@@ -49,7 +49,7 @@ generator: Axels php-classdoc; https://github.com/axelhahn/php-classdoc
 
 Constuctor
 
-Line [67](https://github.com/<user>/<repo>/blob/main/logger.class.php#L67) (7 lines)
+Line [67](https://github.com/axelhahn/ahlogger/blob/master/logger.class.php#L67) (7 lines)
 
 **Return**: `void`
 
@@ -63,7 +63,7 @@ Line [67](https://github.com/<user>/<repo>/blob/main/logger.class.php#L67) (7 li
 
 Add a logging message
 
-Line [85](https://github.com/<user>/<repo>/blob/main/logger.class.php#L85) (14 lines)
+Line [85](https://github.com/axelhahn/ahlogger/blob/master/logger.class.php#L85) (14 lines)
 
 **Return**: `bool`
 
@@ -78,7 +78,7 @@ Line [85](https://github.com/<user>/<repo>/blob/main/logger.class.php#L85) (14 l
 
 Enable / disable debugging
 
-Line [105](https://github.com/<user>/<repo>/blob/main/logger.class.php#L105) (4 lines)
+Line [105](https://github.com/axelhahn/ahlogger/blob/master/logger.class.php#L105) (4 lines)
 
 **Return**: `bool`
 
@@ -92,7 +92,7 @@ Line [105](https://github.com/<user>/<repo>/blob/main/logger.class.php#L105) (4 
 
 Enable client debugging by a given array of allowed ip addresses
 
-Line [115](https://github.com/<user>/<repo>/blob/main/logger.class.php#L115) (11 lines)
+Line [115](https://github.com/axelhahn/ahlogger/blob/master/logger.class.php#L115) (11 lines)
 
 **Return**: `bool`
 
@@ -106,7 +106,7 @@ Line [115](https://github.com/<user>/<repo>/blob/main/logger.class.php#L115) (11
 
 Render output of all logging messages
 
-Line [231](https://github.com/<user>/<repo>/blob/main/logger.class.php#L231) (105 lines)
+Line [231](https://github.com/axelhahn/ahlogger/blob/master/logger.class.php#L231) (105 lines)
 
 **Return**: `string`
 
@@ -116,7 +116,7 @@ Line [231](https://github.com/<user>/<repo>/blob/main/logger.class.php#L231) (10
 
 Render output of all logging messages for cli output
 
-Line [341](https://github.com/<user>/<repo>/blob/main/logger.class.php#L341) (20 lines)
+Line [341](https://github.com/axelhahn/ahlogger/blob/master/logger.class.php#L341) (20 lines)
 
 **Return**: `string`
 
